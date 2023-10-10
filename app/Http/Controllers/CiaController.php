@@ -11,7 +11,7 @@ class CiaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.cias.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class CiaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cias.create');
     }
 
     /**
@@ -27,7 +27,7 @@ class CiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
