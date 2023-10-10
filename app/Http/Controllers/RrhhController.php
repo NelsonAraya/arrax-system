@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cia;
+use App\Models\Cargo;
+use App\Models\Sanguineo;
+use App\Models\Usuario;
 
 class RrhhController extends Controller
 {
@@ -19,7 +23,13 @@ class RrhhController extends Controller
      */
     public function create()
     {
-        return view('rrhh.create');
+        $cia=Cia::pluck('nombre','id');
+        $cargo=Cargo::pluck('nombre','id');
+        $sanguineo=Sanguineo::pluck('nombre','id');
+        return view('rrhh.create')
+            ->with('cia',$cia)
+            ->with('cargo',$cargo)
+            ->with('sanguineo',$sanguineo);
     }
 
     /**
@@ -27,7 +37,26 @@ class RrhhController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'numero' => 'required|integer',
+            'nombre' => 'required|string',
+        ]);
+
+        try {
+
+            $usu = new Usuario();
+            $usu->numero = $request->numero;
+            $usu->nombre = $request->nombre;
+            $usu->save();
+            
+            return redirect()->route('cias.index')->with('success', 'Compañia creada exitosamente.');
+
+        } catch (\Exception $e) {
+
+            return redirect()->route('cias.index')->with('danger', 'Hubo un error al guardar la compañia. Por favor, inténtalo de nuevo.');
+
+        }
+
     }
 
     /**

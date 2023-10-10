@@ -26,7 +26,8 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" method="POST" action="{{ route('rrhh.store') }}">
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -136,7 +137,7 @@
                                                 <input type="number" class="form-control"
                                                     placeholder="99425874">
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-phone"></i>
+                                                    <i class="bi bi-telephone"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,18 +156,63 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-8 offset-md-4">
-                                        <div class='form-check'>
-                                            <div class="checkbox">
-                                                <input type="checkbox" id="checkbox2"
-                                                    class='form-check-input' checked>
-                                                <label for="checkbox2">Remember Me</label>
-                                            </div>
+
+                                    <div class="col-md-4">
+                                        <label>Dotaccion </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                           <select class="form-select" name="cia">
+                                            <option value="">-- Seleccione --</option>
+                                                @foreach ($cia as $key => $value )
+                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                @endforeach
+                                           </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <label>Cargo Institucional </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                           <select class="form-select" name="cargo">
+                                            <option value="">-- Seleccione --</option>
+                                                @foreach ($cargo as $key => $value )
+                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                @endforeach
+                                           </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Grupo Sanguineo </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                           <select class="form-select" name="sanguineo">
+                                            <option value="">-- Seleccione --</option>
+                                                @foreach ($sanguineo as $key => $value )
+                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                @endforeach
+                                           </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>¿Operativo? </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input type="radio" class="btn-check" name="operativo" id="operativo-success" autocomplete="off" checked="">
+                                            <label class="btn btn-outline-success" for="operativo-success">Si, es Operativo</label>
+                                            <input type="radio" class="btn-check" name="operativo" id="operativo-danger" autocomplete="off">
+                                            <label class="btn btn-outline-danger" for="operativo-danger">No, es operativo</label>
+                                        </div>
+                                    </div>
+
+                                    
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit"
-                                            class="btn btn-primary me-1 mb-1">Submit</button>
+                                            class="btn btn-primary me-1 mb-1">Guardar</button>
                                         <button type="reset"
                                             class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                     </div>

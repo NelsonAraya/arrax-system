@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cia;
 
 class CiaController extends Controller
 {
@@ -11,7 +12,8 @@ class CiaController extends Controller
      */
     public function index()
     {
-        return view('admin.cias.index');
+        $cia = Cia::paginate(15);
+        return view('admin.cias.index')->with('cia',$cia);
     }
 
     /**
@@ -27,7 +29,26 @@ class CiaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'numero' => 'required|integer',
+            'nombre' => 'required|string',
+        ]);
+
+        try {
+
+            $cia = new Cia();
+            $cia->numero = $request->numero;
+            $cia->nombre = $request->nombre;
+            $cia->save();
+            
+            return redirect()->route('cias.index')->with('success', 'Compañia creada exitosamente.');
+
+        } catch (\Exception $e) {
+
+            return redirect()->route('cias.index')->with('danger', 'Hubo un error al guardar la compañia. Por favor, inténtalo de nuevo.');
+
+        }
+
     }
 
     /**

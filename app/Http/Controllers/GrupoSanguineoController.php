@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Sanguineo;
 class GrupoSanguineoController extends Controller
 {
     /**
@@ -11,7 +11,8 @@ class GrupoSanguineoController extends Controller
      */
     public function index()
     {
-        //
+        $sanguineo = Sanguineo::paginate(15);
+        return view('admin.grup-sanguineo.index')->with('sanguineo',$sanguineo);
     }
 
     /**
@@ -19,7 +20,7 @@ class GrupoSanguineoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.grup-sanguineo.create');
     }
 
     /**
@@ -27,7 +28,23 @@ class GrupoSanguineoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string',
+        ]);
+
+        try {
+
+            $sanguineo = new Sanguineo();
+            $sanguineo->nombre = $request->nombre;
+            $sanguineo->save();
+
+            return redirect()->route('grup-sanguineo.index')->with('success', 'Grupo sanguineo creado exitosamente.');
+
+        } catch (\Exception $e) {
+
+            return redirect()->route('grup-sanguineo.index')->with('danger', 'Hubo un error al guardar el grupo sanguineo. Por favor, inténtalo de nuevo.');
+
+        }
     }
 
     /**

@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>ADMIN</h3>
-                    <p class="text-subtitle text-muted">Nueva Compañia al Sistema</p>
+                    <p class="text-subtitle text-muted">Nueva Cargo al Sistema</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Admin</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">cia</li>
+                            <li class="breadcrumb-item active" aria-current="page">cargo</li>
                         </ol>
                     </nav>
                 </div>
@@ -22,30 +22,14 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Nueva Compañia</h4>
-                    <div class="alert alert-light-warning color-warning"><i class="bi bi-exclamation-triangle"></i>
-                        La compañia que se defina como Cuerpo de bomberos debe tener como Numero = 100</div>
+                    <h4 class="card-title">Nuevo Cargo</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">   
-                        <form class="form form-horizontal" method="POST" action="{{ route('cias.store') }}">
+                        <form class="form form-horizontal" method="POST" action="{{ route('cargos.store') }}">
                             @csrf
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label>Numero</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="number" class="form-control" name="numero"
-                                                    placeholder="1234" id="first-name-icon">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-shield"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4">
                                         <label>Nombre</label>
                                     </div>
@@ -53,7 +37,7 @@
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control" name="nombre"
-                                                    placeholder="nombre compañia" id="first-name-icon" autocomplete="off">
+                                                    placeholder="cargo institucional" id="first-name-icon" autocomplete="off">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-building"></i>
                                                 </div>

@@ -7,13 +7,13 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>ADMIN</h3>
-                    <p class="text-subtitle text-muted">Listado de Compañias Sistema</p>
+                    <p class="text-subtitle text-muted">Listado de Cargos del Sistema</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Admin</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Cia</li>
+                            <li class="breadcrumb-item active" aria-current="page">Cargo</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,22 +23,20 @@
             <div class="card">
                 <div class="card-header">
                     @include('layouts.messages')
-                    <a href="{{ route('cias.create') }}" class="btn btn-primary">Nueva Compañia</a>
+                    <a href="{{ route('cargos.create') }}" class="btn btn-primary">Nuevo Cargo</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Numero</th>
                                 <th>Nombre</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cia as $row )
+                            @foreach ($cargo as $row )
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->numero }}</td>
                                     <td>{{ $row->nombre }}</td>
                                 </tr>
                             @endforeach

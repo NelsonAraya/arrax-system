@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cargo;
 
 class CargoController extends Controller
 {
@@ -11,7 +12,8 @@ class CargoController extends Controller
      */
     public function index()
     {
-        //
+        $cargo = Cargo::paginate(15);
+        return view('admin.cargos.index')->with('cargo',$cargo);
     }
 
     /**
@@ -19,7 +21,7 @@ class CargoController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.cargos.create');
     }
 
     /**
@@ -27,7 +29,22 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string',
+        ]);
+
+        try {
+
+            $cargo = new Cargo();
+            $cargo->nombre = $request->nombre;
+            $cargo->save();
+
+            return redirect()->route('cargos.index')->with('success', 'Cargo Institucional creado exitosamente.');
+
+        } catch (\Exception $e) {
+
+            return redirect()->route('cargos.index')->with('danger', 'Hubo un error al guardar el cargo. Por favor, inténtalo de nuevo.');
+        }
     }
 
     /**
