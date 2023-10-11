@@ -13,14 +13,12 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Sistema Arrax</li>
-
                 <li class="sidebar-item active">
                     <a href="{{ route('home') }}" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
                         <span>Home</span>
                     </a>
                 </li>
-
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
@@ -35,58 +33,45 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item ">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-cash-stack"></i>
-                        <span>Finanzas</span>
+                        <i class="bi bi-hourglass-split"></i>
+                        <span>Activacion Unidades</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="extra-component-avatar.html">Avatar</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="extra-component-sweetalert.html">Sweet Alert</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="extra-component-toastify.html">Toastify</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="extra-component-rating.html">Rating</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="extra-component-divider.html">Divider</a>
-                        </li>
-                    </ul>
                 </li>
+                <li class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-eye-fill"></i>
+                        <span>Bitacoras Unidades</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-text-fill"></i>
+                        <span>Partes Emergencias</span>
+                    </a>
+                </li>
+                
 
                 <li class="sidebar-title">Acceso Compañias</li>
-                
-                <li class="sidebar-item  has-sub">
+               
+                <li class="sidebar-item ">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-cash-coin"></i>
-                        <span>Boletas Electronicas</span>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Listado de Compañia</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="form-element-input.html">Input</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-input-group.html">Input Group</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-select.html">Select</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-radio.html">Radio</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-checkbox.html">Checkbox</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="form-element-textarea.html">Textarea</a>
-                        </li>
-                    </ul>
+                </li>
+                <li class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-calendar-plus-fill"></i>
+                        <span>Asistencia</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-file-medical-fill"></i>
+                        <span>Ficha Clinica</span>
+                    </a>
                 </li>
 
                 <li class="sidebar-title">Administracion</li>
@@ -105,6 +90,15 @@
                         </li>
                         <li class="submenu-item ">
                             <a href="{{ route('grup-sanguineo.index') }}">Grupos Sanguineos</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="#">Material Mayor</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="#">Claves Radiales</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="#">Especialidades</a>
                         </li>
                     </ul>
                 </li>
@@ -126,23 +120,6 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="sidebar-title">Soporte Tecnico</li>
-
-                <li class="sidebar-item  ">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-ticket-fill"></i>
-                        <span>Generar Ticket</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item  ">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-headset"></i>
-                        <span>Chat Soporte</span>
-                    </a>
-                </li>
-
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
