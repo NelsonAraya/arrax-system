@@ -22,24 +22,45 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
+                    @include('layouts.messages')
                     <a href="{{ route('rrhh.create') }}" class="btn btn-primary">Nuevo Usuario</a>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                            <tr>
-                                <th>Run</th>
-                                <th>Nombre</th>
-                                <th>Dotacion</th>
-                                <th>Cargo</th>
-                                <th>Estado</th>
-                                <th>Editar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
+                    <div class="table-responsive"> 
+                        <table class="table table-striped" id="table1">
+                            <thead>
+                                <tr>
+                                    <th>Run</th>
+                                    <th>Nombre</th>
+                                    <th>Dotacion</th>
+                                    <th>Cargo</th>
+                                    <th>Estado</th>
+                                    <th>Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($usu as $row)
+                                <tr>
+                                    <td> {{ $row->runCompleto() }} </td>
+                                    <td> {{ $row->soloNombre() }} </td>
+                                    <td> {{ $row->cia->nombreCompleto() }} </td>
+                                    <td> {{ $row->cargo->nombre }} </td>
+                                    <td>
+                                        @if ($row->estado =='A')
+                                        <span class="badge bg-success">Activo</span> 
+                                        @else
+                                        <span class="badge bg-danger">Inactivo</span>  
+                                        @endif 
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('rrhh.edit',$row->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    
                 </div>
             </div>
 

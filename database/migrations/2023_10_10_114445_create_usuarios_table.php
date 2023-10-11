@@ -30,7 +30,7 @@ return new class extends Migration
             $table->enum('login_autorizado', ['S', 'N'])->default('S');
             $table->enum('estado', ['A', 'I'])->default('A');
             $table->enum('operativo', ['S', 'N'])->default('N');
-
+            $table->timestamps();
             $table->foreign('cia_id')->references('id')->on('cias');
             $table->foreign('cargo_id')->references('id')->on('cargos');
             $table->foreign('sanguineo_id')->references('id')->on('sanguineos');

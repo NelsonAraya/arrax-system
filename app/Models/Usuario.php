@@ -19,4 +19,22 @@ class Usuario extends Authenticatable
 
         return ucwords($this->nombres.' '.$this->apellidop);
     }
+    public function runCompleto() {
+        return number_format($this->id, 0,'.','.') . '-' . $this->dv;
+      }
+    public function cia(){
+
+        return $this->belongsTo(Cia::class, 'cia_id');
+
+    }
+    public function cargo(){
+
+        return $this->belongsTo(Cargo::class, 'cargo_id');
+
+    }
+    public function sanguineo(){
+
+        return $this->belongsTo(Sanguineo::class, 'sanguineo_id');
+
+    }
 }

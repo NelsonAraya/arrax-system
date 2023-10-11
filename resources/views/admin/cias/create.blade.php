@@ -38,8 +38,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="number" class="form-control" name="numero"
-                                                    placeholder="1234" id="first-name-icon">
+                                                <input type="number" class="form-control" name="numero" autocomplete="off"
+                                                    placeholder="1234">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-shield"></i>
                                                 </div>
@@ -53,7 +53,7 @@
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control" name="nombre"
-                                                    placeholder="nombre compañia" id="first-name-icon" autocomplete="off">
+                                                    placeholder="nombre compañia" autocomplete="off">
                                                 <div class="form-control-icon">
                                                     <i class="bi bi-building"></i>
                                                 </div>
