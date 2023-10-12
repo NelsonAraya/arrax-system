@@ -12,6 +12,9 @@ class Cia extends Model
     public function usuarios(){
         return $this->hasMany(Usuario::class,'cia_id','id')->orderBy('rol','ASC');
     }
+    public function matMayor(){
+        return $this->hasMany(MaterialMayor::class,'cia_id','id')->orderBy('orden','ASC');
+    }
     public function nombreCompleto(){
 
     	if($this->numero==100){

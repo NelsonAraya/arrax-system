@@ -92,13 +92,13 @@
                             <a href="{{ route('grup-sanguineo.index') }}">Grupos Sanguineos</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Material Mayor</a>
+                            <a href="{{ route('mat-mayor.index') }}">Material Mayor</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Claves Radiales</a>
+                            <a href="{{ route('claves.index') }}">Claves Radiales</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="#">Especialidades</a>
+                            <a href="{{ route('especialidad.index') }}">Especialidades</a>
                         </li>
                     </ul>
                 </li>

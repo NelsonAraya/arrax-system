@@ -26,22 +26,24 @@
                     <a href="{{ route('grup-sanguineo.create') }}" class="btn btn-primary">Nuevo Grupo Sanguineo</a>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($sanguineo as $row )
+                    <div class="table-responsive"> 
+                        <table class="table table-striped" id="table1">
+                            <thead>
                                 <tr>
-                                    <td>{{ $row->id }}</td>
-                                    <td>{{ $row->nombre }}</td>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($sanguineo as $row )
+                                    <tr>
+                                        <td>{{ $row->id }}</td>
+                                        <td>{{ $row->nombre }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>    
                 </div>
             </div>
 

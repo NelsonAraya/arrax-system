@@ -26,24 +26,26 @@
                     <a href="{{ route('cias.create') }}" class="btn btn-primary">Nueva Compañia</a>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped" id="table1">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Numero</th>
-                                <th>Nombre</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($cia as $row )
+                    <div class="table-responsive"> 
+                        <table class="table table-striped" id="table1">
+                            <thead>
                                 <tr>
-                                    <td>{{ $row->id }}</td>
-                                    <td>{{ $row->numero }}</td>
-                                    <td>{{ $row->nombre }}</td>
+                                    <th>ID</th>
+                                    <th>Numero</th>
+                                    <th>Nombre</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($cia as $row )
+                                    <tr>
+                                        <td>{{ $row->id }}</td>
+                                        <td>{{ $row->numero }}</td>
+                                        <td>{{ $row->nombre }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>    
                 </div>
             </div>
 

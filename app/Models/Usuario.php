@@ -37,4 +37,9 @@ class Usuario extends Authenticatable
         return $this->belongsTo(Sanguineo::class, 'sanguineo_id');
 
     }
+    public function matMayors(){
+        
+        return $this->belongsToMany(MaterialMayor::class)->withTimestamps();
+    }
+    
 }
