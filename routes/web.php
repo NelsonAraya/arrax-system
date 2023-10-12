@@ -26,6 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('rrhh/{id}/verMat-Mayor',[RrhhController::class, 'verMaterialMayor'])->name('rrhh.mat-mayor');
 Route::resource('rrhh', RrhhController::class);
 Route::resource('admin/cias', CiaController::class);
 Route::resource('admin/cargos', CargoController::class);

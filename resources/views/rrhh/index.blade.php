@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive"> 
-                        <table class="table table-striped" id="table1">
+                        <table class="table table-striped" id="tbl_rrhh">
                             <thead>
                                 <tr>
                                     <th>Run</th>
@@ -70,4 +70,15 @@
     @include('layouts.footer')
 
 </div>
+@endsection
+@section('js')
+<script>
+$(document).ready(function() {
+  $('#tbl_rrhh').DataTable({
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+    }
+  });
+});
+</script>
 @endsection

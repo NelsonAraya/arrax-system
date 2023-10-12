@@ -175,4 +175,7 @@ class RrhhController extends Controller
     {
         //
     }
+    public function verMaterialMayor(string $id){
+        dd($id);
+    }
 }

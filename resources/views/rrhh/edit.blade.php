@@ -239,8 +239,12 @@
                                             <label class="btn btn-outline-danger" for="estado-danger">No, esta Activo</label>
                                         </div>
                                     </div>
-
-                                    
+                                    <div class="col-md-4">
+                                        <label>Material Mayor</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <a href="{{ route('rrhh.mat-mayor',$usu->id) }}" class="btn btn-info">Asignar Material Mayor</a>
+                                    </div>        
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit"
                                             class="btn btn-success me-1 mb-1">Actualizar</button>

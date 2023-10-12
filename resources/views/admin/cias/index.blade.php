@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive"> 
-                        <table class="table table-striped" id="table1">
+                        <table class="table table-striped" id="tbl_cias">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -55,4 +55,15 @@
     @include('layouts.footer')
 
 </div>
+@endsection
+@section('js')
+<script>
+$(document).ready(function() {
+  $('#tbl_cias').DataTable({
+    language: {
+        url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+    }
+  });
+});
+</script>
 @endsection
