@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('material_mayor_usuario', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('usuario_id')->unsigned();
+            $table->integer('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios');
-            $table->integer('matmayor_id')->unsigned();
-            $table->foreign('matmayor_id')->references('id')->on('material_mayors');
-            $table->unique(['usuario_id', 'matmayor_id']);
+            $table->integer('material_mayor_id')->unsigned();
+            $table->foreign('material_mayor_id')->references('id')->on('material_mayors');
+            $table->unique(['usuario_id', 'material_mayor_id']);
             $table->timestamps();
         });
     }

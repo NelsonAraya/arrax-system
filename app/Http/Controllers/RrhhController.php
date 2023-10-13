@@ -7,6 +7,7 @@ use App\Models\Cia;
 use App\Models\Cargo;
 use App\Models\Sanguineo;
 use App\Models\Usuario;
+use App\Models\MaterialMayor;
 
 class RrhhController extends Controller
 {
@@ -176,6 +177,32 @@ class RrhhController extends Controller
         //
     }
     public function verMaterialMayor(string $id){
-        dd($id);
+        try {
+            $usu = Usuario::findOrFail($id);
+            $mat = MaterialMayor::where('estado','A')->get();
+
+            return view('rrhh.mat')->with('usu',$usu)->with('mat',$mat);
+            
+        } catch (ModelNotFoundException $e) {
+            
+            // redirigir a una página de error 404 o realizar alguna otra acción.
+        }
+    }
+    public function updateMaterialMayor(Request $request, string $id){
+        try {
+            $usu = Usuario::findOrFail($id);
+            
+            $usu->matMayors()->detach();
+
+            foreach ((array)$request->matMayor as $row){
+                $usu->matMayors()->attach($row);
+          }
+
+            return redirect()->route('rrhh.index')->with('success', 'Usuario Modificado exitosamente.');
+            
+        } catch (ModelNotFoundException $e) {
+            
+            // redirigir a una página de error 404 o realizar alguna otra acción.
+        }
     }
 }
