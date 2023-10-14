@@ -34,7 +34,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                    <a href="{{ route('activacion.index') }}" class='sidebar-link'>
                         <i class="bi bi-hourglass-split"></i>
                         <span>Activacion Unidades</span>
                     </a>

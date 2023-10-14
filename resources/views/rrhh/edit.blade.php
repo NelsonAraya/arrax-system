@@ -204,7 +204,32 @@
                                            </select>
                                         </div>
                                     </div>
-
+                                    <div class="col-md-4">
+                                        <label>Fecha Ingreso a la Institucion</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group has-icon-left">
+                                            <div class="position-relative">
+                                                <input type="date" class="form-control" name="fecha_ingreso" autocomplete="off" value="{{ $usu->fecha_de_ingreso }}">
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Fecha licencia Conducir</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group has-icon-left">
+                                            <div class="position-relative">
+                                                <input type="date" class="form-control" name="fecha_licencia" autocomplete="off" value="{{ $usu->fecha_licencia }}">
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-calendar"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-4">
                                         <label>¿Operativo? </label>
                                     </div>

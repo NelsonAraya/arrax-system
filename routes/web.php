@@ -8,6 +8,7 @@ use App\Http\Controllers\GrupoSanguineoController;
 use App\Http\Controllers\ClaveController;
 use App\Http\Controllers\EspecialidadController;
 use App\Http\Controllers\MaterialMayorController;
+use App\Http\Controllers\ActivacionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +36,4 @@ Route::resource('admin/grup-sanguineo', GrupoSanguineoController::class);
 Route::resource('admin/claves', ClaveController::class);
 Route::resource('admin/especialidad', EspecialidadController::class);
 Route::resource('admin/mat-mayor', MaterialMayorController::class);
+Route::resource('activacion', ActivacionController::class);

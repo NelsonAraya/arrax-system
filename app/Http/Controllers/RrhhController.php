@@ -53,6 +53,7 @@ class RrhhController extends Controller
             'cargo' => 'required',
             'sanguineo' => 'required',
             'operativo' => 'required',
+            'fecha_ingreso' => 'required',
         ]);
 
         try {
@@ -76,6 +77,8 @@ class RrhhController extends Controller
             $usu->sanguineo_id = $request->sanguineo;
             $usu->cargo_id = $request->cargo;
             $usu->operativo = $request->operativo;
+            $usu->fecha_de_ingreso = $request->fecha_ingreso;
+            $usu->fecha_licencia = $request->fecha_licencia;
             $usu->password = bcrypt($id);
 
             $usu->save();
@@ -159,6 +162,8 @@ class RrhhController extends Controller
             $usu->operativo = $request->operativo;
             $usu->login_autorizado = $request->login_autorizado;
             $usu->estado = $request->estado;
+            $usu->fecha_de_ingreso = $request->fecha_ingreso;
+            $usu->fecha_licencia = $request->fecha_licencia;
             $usu->save();
 
             return redirect()->route('rrhh.index')->with('success', 'Usuario Modificado exitosamente.');

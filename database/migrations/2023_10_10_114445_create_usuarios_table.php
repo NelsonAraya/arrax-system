@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('cargo_id')->unsigned()->nullable();
             $table->integer('sanguineo_id')->unsigned()->nullable();
             $table->date('fecha_de_ingreso')->nullable();
+            $table->date('fecha_licencia')->nullable();
             $table->enum('login_autorizado', ['S', 'N'])->default('S');
             $table->enum('estado', ['A', 'I'])->default('A');
             $table->enum('operativo', ['S', 'N'])->default('N');
