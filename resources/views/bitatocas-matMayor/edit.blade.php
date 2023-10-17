@@ -26,8 +26,9 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">   
-                        <form class="form form-horizontal" method="POST" action="">
+                        <form class="form form-horizontal" method="POST" action="{{ route('bitacora.update',$mat) }}">
                             @csrf
+                            @method('PUT')
                             <div class="form-body">
                                 <form class="form">
                                     <div class="row">
@@ -46,7 +47,9 @@
                                         <div class="col-md-2 col-12">
                                             <div class="form-group">
                                                 <label for="km_salida">KM/Salida</label>
-                                                <input type="number" id="km_salida" class="form-control" name="km_salida">
+                                                <input type="number" id="km_salida" class="form-control" name="km_salida"
+                                                @if($bi==null) value="0" @else value="{{ $bi->kmllegada }}" @endif readonly
+                                                >
                                             </div>
                                         </div>
                                         <div class="col-md-2 col-12">
