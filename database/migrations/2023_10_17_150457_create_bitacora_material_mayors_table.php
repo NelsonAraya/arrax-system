@@ -21,9 +21,9 @@ return new class extends Migration
             $table->integer('kmllegada');
             $table->integer('material_mayor_id')->unsigned();
             $table->foreign('material_mayor_id')->references('id')->on('material_mayors');
-            $table->integer('conductor_id')->unsigned();
+            $table->integer('conductor_id');
             $table->foreign('conductor_id')->references('id')->on('usuarios');
-            $table->integer('obac_id')->unsigned()->nullable();
+            $table->integer('obac_id')->nullable();
             $table->foreign('obac_id')->references('id')->on('usuarios');
             $table->string('servicio',10);
             $table->string('direccion',200);
