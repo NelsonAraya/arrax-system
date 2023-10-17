@@ -18,4 +18,20 @@ class MaterialMayor extends Model
 
         return $this->belongsToMany(Usuario::class)->withTimestamps();;
     }
+    public function isActive(){
+      
+        if($this->estado=='A'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function activaciones(){
+        return $this->hasMany(Activacion::class,'material_mayor_id');
+    }
+    public function lastActivacion(){
+
+        return $this->activaciones()->where('material_mayor_id',$this->id)->latest('id')->first();
+    
+    }
 }

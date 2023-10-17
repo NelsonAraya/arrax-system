@@ -9,6 +9,7 @@ use App\Http\Controllers\ClaveController;
 use App\Http\Controllers\EspecialidadController;
 use App\Http\Controllers\MaterialMayorController;
 use App\Http\Controllers\ActivacionController;
+use App\Http\Controllers\BitacoraMaterialMayorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,4 @@ Route::resource('admin/claves', ClaveController::class);
 Route::resource('admin/especialidad', EspecialidadController::class);
 Route::resource('admin/mat-mayor', MaterialMayorController::class);
 Route::resource('activacion', ActivacionController::class);
+Route::resource('bitacora', BitacoraMaterialMayorController::class);

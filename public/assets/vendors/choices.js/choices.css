@@ -2,9 +2,11 @@
 =            Choices            =
 ===============================*/
 .choices {
-  position: relative;
+  position: relative; 
   margin-bottom: 24px;
   font-size: 16px;
+  /**/
+
 }
 
 .choices:focus {
@@ -151,7 +153,8 @@
 
 .is-focused .choices__inner,
 .is-open .choices__inner {
-  border-color: #b7b7b7;
+  border-color: #b7b7b7; 
+
 }
 
 .is-open .choices__inner {

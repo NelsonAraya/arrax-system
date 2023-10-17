@@ -24,7 +24,7 @@
                     <div class="card-body p-md-5 mx-md-4">
       
                       <div class="text-center">
-                        <img src="{{ asset('assets/images/logo/login.jpg') }}"
+                        <img src="{{ asset('assets/images/logo/logo.png') }}"
                           style="width: 185px;" alt="logo">
                         <h4 class="mt-1 mb-5 pb-1">Sistema de Administración y Control de Bomberos</h4>
                       </div>

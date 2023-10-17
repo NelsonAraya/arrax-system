@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activacion;
+use App\Models\MaterialMayor;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -31,7 +32,7 @@ class ActivacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -55,7 +56,30 @@ class ActivacionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $acti = new Activacion();
+        $mat = MaterialMayor::FindOrFail($id);
+        
+        if ($request->has('activar')) {
+
+            $acti->usuario_id = Auth::user()->id;
+            $acti->material_mayor_id = $id;
+            $acti->estado = 'A';
+            $msg = "Con Conductor";
+            $tipo_msg = "success";
+            $mat->activacion = 'S';
+           
+        } elseif ($request->has('desactivar')) {
+            $acti->estado = 'I';
+            $acti->usuario_id = Auth::user()->id;
+            $acti->material_mayor_id = $id;
+            $msg = "sin Conductor";
+            $tipo_msg = "danger";
+            $mat->activacion = 'N';
+           
+        } 
+        $mat->save();
+        $acti->save();
+        return redirect()->route('activacion.index')->with($tipo_msg, 'Unidad:  '.$mat->clave.' '.$msg);
     }
 
     /**

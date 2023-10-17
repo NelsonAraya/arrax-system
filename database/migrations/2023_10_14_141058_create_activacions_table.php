@@ -17,9 +17,7 @@ return new class extends Migration
             $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->integer('material_mayor_id')->unsigned();
             $table->foreign('material_mayor_id')->references('id')->on('material_mayors');
-            $table->integer('usuario_cambio_id')->nullable();
-            $table->foreign('usuario_cambio_id')->references('id')->on('usuarios');
-            $table->enum('estado',['A','I','C','F']);
+            $table->enum('estado',['A','I']);
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Activacion</h3>
+                    <h3>Activacion Material Mayor</h3>
                     <p class="text-subtitle text-muted">Activacion de Material Mayor</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -20,32 +20,77 @@
             </div>
         </div>
         <section class="section">
+            @include('layouts.messages')
             <div class="row match-height">
                 @foreach ($usu->matMayors as $row )
-                <div class="col-lg-6 col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Simple List Group</h4>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <p>
-                                    The most basic list group is simply an unordered list with list
-                                    items, and the proper classes. Build upon it with the options that
-                                    follow, or your own CSS as needed.
-                                </p>
-                                <ul class="list-group">
-                                    <li class="list-group-item active">Cras justo odio</li>
-                                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                                    <li class="list-group-item">Morbi leo risus</li>
-                                    <li class="list-group-item">Porta ac consectetur ac</li>
-                                    <li class="list-group-item">chocolate cheesecake candy</li>
-                                    <li class="list-group-item">Oat cake icing pastry pie carrot</li>
-                                </ul>
+                    @if ($row->isActive())
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Unidad {{ $row->clave }}</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label >PPU:</label>
+                                            <p class="form-control-static">{{ $row->patente }}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label >Conductor:</label>
+                                            @if($row->lastActivacion()!== null )
+                                                @if($row->lastActivacion()->estado=='A') 
+                                                    <p class="form-control-static">  {{ $row->lastActivacion()->usuario->soloNombre() }} </P>
+                                                @endif 
+                                            @endif                        
+                                        </div>
+                                        <div class="buttons">
+
+                                            @if($row->lastActivacion()!== null )
+                                                @if($row->lastActivacion()->estado=='A') 
+                                                    <form style="display: inline;">
+                                                        <button type="button" class="btn btn-success" name="activar" disabled>Activar Unidad</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('activacion.update',$row->id)}}" method="POST" style="display: inline;">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button type="submit" class="btn btn-success" name="activar">Activar Unidad</button>
+                                                    </form>
+                                                @endif 
+                                            @else
+                                                <form action="{{ route('activacion.update',$row->id)}}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-success" name="activar">Activar Unidad</button>
+                                                </form>
+                                            @endif     
+                                                
+                                            @if($row->lastActivacion()!== null )
+                                                @if($row->lastActivacion()->estado=='I') 
+                                                    <form style="display: inline;">
+                                                        <button type="button" class="btn btn-danger" name="desactivar" disabled>Desactivar Unidad</button>
+                                                    </form>
+                                                @else
+                                                    <form action="{{ route('activacion.update',$row->id)}}" method="POST" style="display: inline;">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button type="submit" class="btn btn-danger" name="desactivar">Desactivar Unidad</button>
+                                                    </form>
+                                                @endif 
+                                            @else
+                                                <form style="display: inline;">
+                                                    <button type="button" class="btn btn-danger" name="desactivar" disabled>Desactivar Unidad</button>
+                                                </form>
+                                            @endif 
+
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endif
+                    
                 @endforeach
             </div>
         </section>
@@ -54,15 +99,4 @@
     @include('layouts.footer')
 
 </div>
-@endsection
-@section('js')
-<script>
-$(document).ready(function() {
-  $('#tbl_rrhh').DataTable({
-    language: {
-        url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
-    }
-  });
-});
-</script>
 @endsection

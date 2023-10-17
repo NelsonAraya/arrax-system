@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                    <a href="{{ route('bitacora.index') }}" class='sidebar-link'>
                         <i class="bi bi-eye-fill"></i>
                         <span>Bitacoras Unidades</span>
                     </a>
