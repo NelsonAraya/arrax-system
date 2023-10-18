@@ -29,9 +29,14 @@ class MaterialMayor extends Model
     public function activaciones(){
         return $this->hasMany(Activacion::class,'material_mayor_id');
     }
+
     public function lastActivacion(){
 
         return $this->activaciones()->where('material_mayor_id',$this->id)->latest('id')->first();
     
+    }
+
+    public function bitacoras(){
+        return $this->hasMany(BitacoraMaterialMayor::class,'material_mayor_id');
     }
 }

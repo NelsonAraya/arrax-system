@@ -6,14 +6,14 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>RRHH</h3>
-                    <p class="text-subtitle text-muted">Listado de Usuarios Sistema</p>
+                    <h3>Ficha Medica</h3>
+                    <p class="text-subtitle text-muted">Listado Usuario</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">rrhh</li>
+                            <li class="breadcrumb-item active" aria-current="page">Ficha Medica</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,7 +23,6 @@
             <div class="card">
                 <div class="card-header">
                     @include('layouts.messages')
-                    <a href="{{ route('rrhh.create') }}" class="btn btn-primary">Nuevo Usuario</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive"> 
@@ -32,10 +31,10 @@
                                 <tr>
                                     <th>Run</th>
                                     <th>Nombre</th>
-                                    <th>Dotacion</th>
                                     <th>Cargo</th>
+                                    <th>Dotacion</th>
                                     <th>Estado</th>
-                                    <th>Editar</th>
+                                    <th>Ficha</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,8 +42,8 @@
                                 <tr>
                                     <td> {{ $row->runCompleto() }} </td>
                                     <td> {{ $row->soloNombre() }} </td>
-                                    <td> {{ $row->cia->nombreCompleto() }} </td>
                                     <td> {{ $row->cargo->nombre }} </td>
+                                    <td> {{ $row->cia->nombreCompleto() }} </td>
                                     <td>
                                         @if ($row->estado =='A')
                                         <span class="badge bg-success">Activo</span> 
@@ -53,7 +52,7 @@
                                         @endif 
                                     </td>
                                     <td>
-                                        <a href="{{ route('rrhh.edit',$row->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                        <a href="{{ route('ficha-medica.edit',$row->id) }}" class="btn btn-info"><i class="bi bi-eye"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

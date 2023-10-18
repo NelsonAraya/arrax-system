@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cia;
 use App\Models\Usuario;
 use App\Models\BitacoraMaterialMayor;
+use App\Models\MaterialMayor;
 use Illuminate\Support\Facades\Auth;
 
 class BitacoraMaterialMayorController extends Controller
@@ -40,7 +41,8 @@ class BitacoraMaterialMayorController extends Controller
      */
     public function show(string $id)
     {
-        
+        $mat = MaterialMayor::FindOrFail($id);
+        return view ('bitatocas-matMayor.show')->with('mat',$mat);
     }
 
     /**
@@ -84,7 +86,7 @@ class BitacoraMaterialMayorController extends Controller
             $bi->conductor_id = $request->conductor;
             $bi->obac_id = $request->obac;
             $bi->material_mayor_id = $id;
-            $bi->servicio = $request->fecha_salida;
+            $bi->servicio = $request->servicio;
             $bi->registrador_id = Auth::user()->id;
 
             $bi->save();

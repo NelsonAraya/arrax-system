@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive"> 
-                        <table class="table table-striped" id="tbl_rrhh">
+                        <table class="table table-striped" id="tbl_materialMayor">
                             <thead>
                                 <tr>
                                     <th>Patente</th>
@@ -75,7 +75,7 @@
 @section('js')
 <script>
 $(document).ready(function() {
-  $('#tbl_rrhh').DataTable({
+  $('#tbl_materialMayor').DataTable({
     language: {
         url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
     },

@@ -21,7 +21,7 @@ class Usuario extends Authenticatable
     }
     public function runCompleto() {
         return number_format($this->id, 0,'.','.') . '-' . $this->dv;
-      }
+    }
     public function cia(){
 
         return $this->belongsTo(Cia::class, 'cia_id');
@@ -41,5 +41,19 @@ class Usuario extends Authenticatable
         
         return $this->belongsToMany(MaterialMayor::class)->withTimestamps();
     }
+    public function ficha() {
+        return $this->hasOne(FichaMedica::class,'usuario_id','id');
+    }
+    public function edad()
+    {
+        list($ano, $mes, $dia) = explode('-', $this->fecha_nacimiento);
+        $edad = date('Y') - $ano - 1;
+        if (date('m') > $mes || (date('m') == $mes && date('d') >= $dia)) {
+            $edad++;
+        }
+
+        return $edad;
+    }
+
     
 }

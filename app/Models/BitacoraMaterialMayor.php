@@ -10,7 +10,7 @@ class BitacoraMaterialMayor extends Model
     use HasFactory;
 
     public function matMayor(){
-        return $this->belongsTo(Vehiculo::class,'vehiculo_id','id');
+        return $this->belongsTo(MaterialMayor::class,'material_mayor_id','id');
     }
 
     public function conductor(){

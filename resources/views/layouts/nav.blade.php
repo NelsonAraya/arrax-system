@@ -40,6 +40,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item ">
+                    <a href="{{ route('ficha-medica.index') }}" class='sidebar-link'>
+                        <i class="bi bi-file-medical-fill"></i>
+                        <span>Ficha Medica</span>
+                    </a>
+                </li>
+                <li class="sidebar-item ">
                     <a href="{{ route('bitacora.index') }}" class='sidebar-link'>
                         <i class="bi bi-eye-fill"></i>
                         <span>Bitacoras Unidades</span>
@@ -67,13 +73,6 @@
                         <span>Asistencia</span>
                     </a>
                 </li>
-                <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-medical-fill"></i>
-                        <span>Ficha Clinica</span>
-                    </a>
-                </li>
-
                 <li class="sidebar-title">Administracion</li>
 
                 <li class="sidebar-item  has-sub">
