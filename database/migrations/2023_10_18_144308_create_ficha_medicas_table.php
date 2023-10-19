@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ficha_medicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('usuario_id')->unsigned();
+            $table->integer('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->enum('cronico', ['S', 'N'])->default('N');
             $table->double('peso', 8, 2)->nullable();
