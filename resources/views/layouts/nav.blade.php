@@ -13,19 +13,22 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Sistema Arrax</li>
-                <li class="sidebar-item active">
-                    <a href="{{ route('home') }}" class='sidebar-link'>
+                <li class="sidebar-item {{ request()->is('home') ? 'active' : '' }} ">
+                    <a href="{{ route('home') }}" class='sidebar-link'> 
                         <i class="bi bi-house-fill"></i>
                         <span>Home</span>
                     </a>
                 </li>
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item  has-sub 
+                {{ str_starts_with(request()->route()->getName(), 'rrhh.') ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>RRHH</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
+                    <ul class="submenu  {{ str_starts_with(request()->route()->getName(), 'rrhh.') ? 'active' : '' }}">
+                        <li class="submenu-item @if (request()->route()->getName() == 'rrhh.index')
+                            active
+                        @endif ">
                             <a href="{{ route('rrhh.index') }}">Usuarios</a>
                         </li>
                         <li class="submenu-item ">
@@ -33,19 +36,25 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item ">
+                <li class="sidebar-item @if (request()->route()->getName() == 'activacion.index')
+                    active
+                @endif">
                     <a href="{{ route('activacion.index') }}" class='sidebar-link'>
                         <i class="bi bi-hourglass-split"></i>
                         <span>Activacion Unidades</span>
                     </a>
                 </li>
-                <li class="sidebar-item ">
+                <li class="sidebar-item @if (request()->route()->getName() == 'ficha-medica.index')
+                    active
+                @endif">
                     <a href="{{ route('ficha-medica.index') }}" class='sidebar-link'>
                         <i class="bi bi-file-medical-fill"></i>
                         <span>Ficha Medica</span>
                     </a>
                 </li>
-                <li class="sidebar-item ">
+                <li class="sidebar-item @if (request()->route()->getName() == 'bitacora.index')
+                    active
+                @endif ">
                     <a href="{{ route('bitacora.index') }}" class='sidebar-link'>
                         <i class="bi bi-eye-fill"></i>
                         <span>Bitacoras Unidades</span>
@@ -61,8 +70,10 @@
 
                 <li class="sidebar-title">Acceso Compañias</li>
                
-                <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item @if (request()->route()->getName() == 'my-cia.index')
+                    active
+                @endif">
+                    <a href="{{ route('my-cia.index') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Listado de Compañia</span>
                     </a>
@@ -75,28 +86,41 @@
                 </li>
                 <li class="sidebar-title">Administracion</li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item  has-sub
+                {{ Str::startsWith(request()->route()->getName(), ['cias.', 'cargos.', 'grup-sanguineo.','mat-mayor.','claves.','especialidad.']) ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
                         <span>Configuracion Sistemas</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
+                    <ul class="submenu {{ Str::startsWith(request()->route()->getName(), ['cias.', 'cargos.', 'grup-sanguineo.','mat-mayor.','claves.','especialidad.']) ? 'active' : '' }}">
+                        <li class="submenu-item @if (request()->route()->getName() == 'cias.index')
+                            active
+                        @endif">
                             <a href="{{ route('cias.index') }}">Compañias</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item @if (request()->route()->getName() == 'cargos.index')
+                            active
+                        @endif">
                             <a href="{{ route('cargos.index') }}">Cargos</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item @if (request()->route()->getName() == 'grup-sanguineo.index')
+                            active
+                        @endif">
                             <a href="{{ route('grup-sanguineo.index') }}">Grupos Sanguineos</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item @if (request()->route()->getName() == 'mat-mayor.index')
+                            active
+                        @endif">
                             <a href="{{ route('mat-mayor.index') }}">Material Mayor</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item @if (request()->route()->getName() == 'claves.index')
+                            active
+                        @endif">
                             <a href="{{ route('claves.index') }}">Claves Radiales</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item @if (request()->route()->getName() == 'especialidad.index')
+                            active
+                        @endif">
                             <a href="{{ route('especialidad.index') }}">Especialidades</a>
                         </li>
                     </ul>

@@ -54,6 +54,9 @@ class Usuario extends Authenticatable
 
         return $edad;
     }
+    public function roles(){   
+        return $this->belongsToMany(Role::class)->withTimestamps();
+      }
 
     
 }

@@ -8,6 +8,7 @@ use App\Models\Cargo;
 use App\Models\Sanguineo;
 use App\Models\Usuario;
 use App\Models\MaterialMayor;
+use App\Models\Role;
 
 class RrhhController extends Controller
 {
@@ -210,4 +211,36 @@ class RrhhController extends Controller
             // redirigir a una página de error 404 o realizar alguna otra acción.
         }
     }
+    public function verPermisos(string $id){
+        try {
+            $usu = Usuario::findOrFail($id);
+            $rol = Role::where('estado','A')->get();
+
+            return view('rrhh.permisos')->with('usu',$usu)->with('rol',$rol);
+            
+        } catch (ModelNotFoundException $e) {
+            
+            // redirigir a una página de error 404 o realizar alguna otra acción.
+        }
+    }
+
+    public function updatePermisos(Request $request, string $id){
+        try {
+            $usu = Usuario::findOrFail($id);
+            
+            $usu->roles()->detach();
+
+            foreach ((array)$request->roles as $row){
+                $usu->roles()->attach($row);
+          }
+
+            return redirect()->route('rrhh.index')->with('success', 'Permisos Actualizado exitosamente.');
+            
+        } catch (ModelNotFoundException $e) {
+            
+            // redirigir a una página de error 404 o realizar alguna otra acción.
+        }
+    }
+
+
 }

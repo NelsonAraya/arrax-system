@@ -16,7 +16,7 @@ class MaterialMayor extends Model
 
     public function usuarios(){
 
-        return $this->belongsToMany(Usuario::class)->withTimestamps();;
+        return $this->belongsToMany(Usuario::class)->withTimestamps();
     }
     public function isActive(){
       
